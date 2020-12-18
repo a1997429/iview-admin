@@ -4,7 +4,7 @@ name: globescene-admin-iview
 
 steps:
 - name: npm-build
-  image: node:12
+  image: node
   environment:
     NODE_ENV: production
   commands:
