@@ -1,0 +1,20 @@
+kind: pipeline
+type: docker
+name: globescene-admin-iview
+
+steps:
+- name: npm-build
+  image: node:12
+  environment:
+    NODE_ENV: production
+  commands:
+    - npm install
+    - npm run build
+
+  volumes:
+    - name: cache
+      path: /globescene-admin-iview
+
+volumes:
+  - name: cache
+    temp: {}
