@@ -19,7 +19,9 @@ steps:
   - name: docker-build
     image: plugins/docker
     settings:
-      auto_tag: true
+      tags:
+        - laster
+        - ${DRONE_SEMVER}
       username: 18569034402@163.com
       password: 1997429hjh
       registry: registry.cn-hangzhou.aliyuncs.com
