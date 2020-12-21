@@ -1,0 +1,26 @@
+kind: pipeline
+type: docker
+name: globescene-admin-iview
+trigger:
+  branch:
+    - master
+    - future/*
+steps:
+  - name: npm-build
+    image: node:13.14.0-alpine3.10 #docker image
+    commands:
+      - rm -rf yarn.lock #删除文件
+      - yarn install
+      - yarn run build
+    volumes:
+      - name: cache
+        path: /globescene-admin-iview
+  #构建docker镜像
+  - name: docker-build
+    image: plugins/docker
+    settings:
+      registry: http://192.168.1.6:5000
+      repo: http://192.168.1.6:5000/aa/globescene-admin-iview  #仓库完整路径
+volumes:
+  - name: cache
+    temp: {}
