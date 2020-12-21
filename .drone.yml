@@ -19,8 +19,7 @@ steps:
   - name: docker-build
     image: plugins/docker
     settings:
-      tags:
-        - '${DRONE_SEMVER}'
+      tags: '$(date -u +"%Y-%m-%dT%H:%M:%SZ")'
       username: 18569034402@163.com
       password: 1997429hjh
       registry: registry.cn-hangzhou.aliyuncs.com
