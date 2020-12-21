@@ -4,7 +4,7 @@ name: globescene-admin-iview
 trigger:
   branch:
     - master
-    - future/*
+    - future
 steps:
   - name: npm-build
     image: node:13.14.0-alpine3.10 #docker image
