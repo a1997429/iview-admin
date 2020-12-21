@@ -12,7 +12,6 @@ steps:
       - rm -rf yarn.lock #删除文件
       - yarn install
       - yarn run build
-      - export docker-version=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
     volumes:
       - name: cache
         path: /globescene-admin-iview
@@ -20,7 +19,7 @@ steps:
   - name: docker-build
     image: plugins/docker
     settings:
-      tags: '${docker-version}'
+      tags: ${DRONE_COMMIT}
       username: 18569034402@163.com
       password: 1997429hjh
       registry: registry.cn-hangzhou.aliyuncs.com
